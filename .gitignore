@@ -1,0 +1,30 @@
+# MATLAB artifacts
+*.asv
+*.autosave
+*.m~
+*.mex*
+*.slxc
+*.slx.autosave
+slprj/
+*.log
+*.fig
+
+# Note: functions/*.p proprietary course channel models are intentionally tracked so scripts run out-of-the-box.
+
+# Binary data and sweep caches
+*.mat
+
+# OS, editor, and temporary files
+Zone.sav
+*.sav
+Thumbs.db
+.DS_Store
+~$*
+*.tmp
+.vscode/
+
+# Excluded course documents and archives
+*.pdf
+*.docx
+*.xlsx
+*.zip
