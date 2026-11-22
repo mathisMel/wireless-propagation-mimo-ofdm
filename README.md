@@ -33,20 +33,20 @@ Verified metrics recorded on MATLAB R2026b (`rng(0)` deterministic seeds):
 | **Session 5b: `4 x 4` Rayleigh MIMO** | `SNR = 20 dB` (`MF / ZF / MMSE / ML`) | `BER = 1.302e-1 / 4.844e-3 / 1.506e-3 / 0` |
 | **Session 5c: Diversity Combining** | `SNR = 14 dB`, `Rx = 1 / 2 / 3 / 4` vs. AWGN | `MRC BER = 1.565e-2 / 1.406e-3 / 6.450e-5 / 0` vs. AWGN `2.682e-7` |
 
-![Wideband LOS Channel Transfer Functions](docs/figures/session1_wb_fig01.png)
-*Figure 1 (`session1_wb_fig01.png`): Wideband 3.6 GHz LOS Channel Transfer Functions showing increased frequency selectivity with bandwidth and reflections.*
+![Wideband LOS Channel Transfer Functions](docs/figures/png/session1_wb_fig01.png)
+*Figure 1 (`session1_wb_fig01.png`): Wideband 3.6 GHz LOS Channel Transfer Functions showing increased frequency selectivity with bandwidth and reflections — [Vector PDF](docs/figures/pdf/session1_wb_fig01.pdf).*
 
-![Narrowband Empirical vs Rician and Rayleigh PDFs](docs/figures/session4_nb_fig05.png)
-*Figure 2 (`session4_nb_fig05.png`): Empirical small-scale fading envelopes fitted to Rician (`K = 12.1 dB`, LOS) and Rayleigh (`K = -21.2 dB`, NLOS) distributions.*
+![Narrowband Empirical vs Rician and Rayleigh PDFs](docs/figures/png/session4_nb_fig05.png)
+*Figure 2 (`session4_nb_fig05.png`): Empirical small-scale fading envelopes fitted to Rician (`K = 12.1 dB`, LOS) and Rayleigh (`K = -21.2 dB`, NLOS) distributions — [Vector PDF](docs/figures/pdf/session4_nb_fig05.pdf).*
 
-![16-QAM OFDM BER and Channel Estimation MSE](docs/figures/session23_ofdm_fig03.png)
-*Figure 3 (`session23_ofdm_fig03.png`): 1024-SC 16-QAM OFDM channel-estimation MSE and un-equalized vs. ZF-equalized BER over LOS and NLOS canyon channels.*
+![16-QAM OFDM BER and Channel Estimation MSE](docs/figures/png/session23_ofdm_fig03.png)
+*Figure 3 (`session23_ofdm_fig03.png`): 1024-SC 16-QAM OFDM channel-estimation MSE and un-equalized vs. ZF-equalized BER over LOS and NLOS canyon channels — [Vector PDF](docs/figures/pdf/session23_ofdm_fig03.pdf).*
 
-![Rayleigh MIMO Equalizer Comparison](docs/figures/session5b_eq_fig01.png)
-*Figure 4 (`session5b_eq_fig01.png`): `1 x 1` to `4 x 4` Rayleigh MIMO spatial-multiplexing BER across `MF`, `ZF`, `MMSE`, and exhaustive `ML` detection.*
+![Rayleigh MIMO Equalizer Comparison](docs/figures/png/session5b_eq_fig01.png)
+*Figure 4 (`session5b_eq_fig01.png`): `1 x 1` to `4 x 4` Rayleigh MIMO spatial-multiplexing BER across `MF`, `ZF`, `MMSE`, and exhaustive `ML` detection — [Vector PDF](docs/figures/pdf/session5b_eq_fig01.pdf).*
 
-![SIMO MRC vs MISO MRT Diversity BER](docs/figures/session5c_div_fig01.png)
-*Figure 5 (`session5c_div_fig01.png`): Overlapping `1 x N` SIMO `MRC` and `N x 1` MISO `MRT` BER curves (`N = 1..4`) demonstrating transmit/receive duality.*
+![SIMO MRC vs MISO MRT Diversity BER](docs/figures/png/session5c_div_fig01.png)
+*Figure 5 (`session5c_div_fig01.png`): Overlapping `1 x N` SIMO `MRC` and `N x 1` MISO `MRT` BER curves (`N = 1..4`) demonstrating transmit/receive duality — [Vector PDF](docs/figures/pdf/session5c_div_fig01.pdf).*
 
 ## Repository Layout & Quickstart
 
@@ -64,7 +64,9 @@ wireless-propagation-mimo-ofdm/
 │       ├── session5a_mimo_channel_svd.m         # Urban-canyon MIMO channel SVD eigenmodes
 │       ├── session5b_mimo_equalizers_rayleigh.m # Rayleigh MIMO MF / ZF / MMSE / ML equalizer BER
 │       └── session5c_mimo_diversity_mrc_mrt.m   # SIMO MRC & MISO MRT diversity BER vs. AWGN
-├── docs/figures/                                # Exported white-background figures (23 PNGs)
+├── docs/figures/
+│   ├── png/                                     # 450 DPI PNG exports (all 23 figures)
+│   └── pdf/                                     # True vector PDF exports (all 23 figures)
 ├── .gitignore
 ├── LICENSE
 └── README.md

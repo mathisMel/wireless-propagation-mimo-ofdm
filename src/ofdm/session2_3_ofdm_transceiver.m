@@ -161,3 +161,19 @@ sgtitle('16-QAM OFDM Performance Over Urban-Canyon Channel (CP = 64)');
 
 fprintf('Session 2/3 Summary | LOS Eq BER (-10..30 dB): %s\n', sprintf('%.3e ', BER_avgEqualized_los));
 fprintf('Session 2/3 Summary | LOS CTF MSE (-10..30 dB): %s\n', sprintf('%.3e ', mse_avg_los));
+
+%% Export Figures (450 DPI PNG + Vector PDF)
+figRoot = fullfile(fileparts(fileparts(fileparts(mfilename('fullpath')))), 'docs', 'figures');
+pngDir = fullfile(figRoot, 'png');
+pdfDir = fullfile(figRoot, 'pdf');
+if ~exist(pngDir, 'dir'), mkdir(pngDir); end
+if ~exist(pdfDir, 'dir'), mkdir(pdfDir); end
+figs = findall(0, 'Type', 'figure');
+if ~isempty(figs)
+    [~, ord] = sort([figs.Number]);
+    figs = figs(ord);
+    for fi = 1:numel(figs)
+        exportgraphics(figs(fi), fullfile(pngDir, sprintf('session23_ofdm_fig%02d.png', fi)), 'Resolution', 450, 'BackgroundColor', 'white');
+        exportgraphics(figs(fi), fullfile(pdfDir, sprintf('session23_ofdm_fig%02d.pdf', fi)), 'ContentType', 'vector', 'BackgroundColor', 'white');
+    end
+end

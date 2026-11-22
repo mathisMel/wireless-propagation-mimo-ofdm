@@ -188,6 +188,22 @@ fprintf('Session 4 Summary | K_los=%.2f (%.2f dB), K_nlos=%.4f (%.2f dB) | theo_
 fprintf('Session 4 Summary | Coherence dist [m] (xLOS, xNLOS, yLOS, yNLOS): %.2f, %.2f, %.2f, %.2f\n', ...
     coherence_dist_x_los, coherence_dist_x_nlos, coherence_dist_y_los, coherence_dist_y_nlos);
 
+%% Export Figures (450 DPI PNG + Vector PDF)
+figRoot = fullfile(fileparts(fileparts(fileparts(mfilename('fullpath')))), 'docs', 'figures');
+pngDir = fullfile(figRoot, 'png');
+pdfDir = fullfile(figRoot, 'pdf');
+if ~exist(pngDir, 'dir'), mkdir(pngDir); end
+if ~exist(pdfDir, 'dir'), mkdir(pdfDir); end
+figs = findall(0, 'Type', 'figure');
+if ~isempty(figs)
+    [~, ord] = sort([figs.Number]);
+    figs = figs(ord);
+    for fi = 1:numel(figs)
+        exportgraphics(figs(fi), fullfile(pngDir, sprintf('session4_nb_fig%02d.png', fi)), 'Resolution', 450, 'BackgroundColor', 'white');
+        exportgraphics(figs(fi), fullfile(pdfDir, sprintf('session4_nb_fig%02d.pdf', fi)), 'ContentType', 'vector', 'BackgroundColor', 'white');
+    end
+end
+
 function d = ternary_idx(idx, nb_real, dx)
 if ~isempty(idx), d = (idx - 1) * dx; else, d = (nb_real - 1) * dx; end
 end

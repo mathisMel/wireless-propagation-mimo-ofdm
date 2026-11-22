@@ -65,3 +65,19 @@ fprintf('  Y-array LOS  : %s\n', sprintf('%.3e ', diag(S1)));
 fprintf('  Y-array NLOS : %s\n', sprintf('%.3e ', diag(S2)));
 fprintf('  X-array LOS  : %s\n', sprintf('%.3e ', diag(S_los)));
 fprintf('  X-array NLOS : %s\n', sprintf('%.3e ', diag(S_nlos)));
+
+%% Export Figures (450 DPI PNG + Vector PDF)
+figRoot = fullfile(fileparts(fileparts(fileparts(mfilename('fullpath')))), 'docs', 'figures');
+pngDir = fullfile(figRoot, 'png');
+pdfDir = fullfile(figRoot, 'pdf');
+if ~exist(pngDir, 'dir'), mkdir(pngDir); end
+if ~exist(pdfDir, 'dir'), mkdir(pdfDir); end
+figs = findall(0, 'Type', 'figure');
+if ~isempty(figs)
+    [~, ord] = sort([figs.Number]);
+    figs = figs(ord);
+    for fi = 1:numel(figs)
+        exportgraphics(figs(fi), fullfile(pngDir, sprintf('session5a_svd_fig%02d.png', fi)), 'Resolution', 450, 'BackgroundColor', 'white');
+        exportgraphics(figs(fi), fullfile(pdfDir, sprintf('session5a_svd_fig%02d.pdf', fi)), 'ContentType', 'vector', 'BackgroundColor', 'white');
+    end
+end

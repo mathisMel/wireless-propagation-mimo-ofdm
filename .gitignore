@@ -25,6 +25,8 @@ Thumbs.db
 
 # Excluded course documents and archives
 *.pdf
+!docs/figures/pdf/
+!docs/figures/pdf/*.pdf
 *.docx
 *.xlsx
 *.zip
